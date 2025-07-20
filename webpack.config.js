@@ -1,5 +1,4 @@
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
-const { sentryWebpackPlugin } = require('@sentry/webpack-plugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 
 const circularPlugin = new CircularDependencyPlugin({
@@ -75,13 +74,7 @@ module.exports = (env) => {
       },
     },
     plugins: production
-      ? [
-          sentryWebpackPlugin({
-            authToken: process.env.SENTRY_AUTH_TOKEN,
-            org: 'neo4j-inc',
-            project: 'neodash',
-          }),
-        ]
+      ? []
       : [new ReactRefreshWebpackPlugin(), ...(circularValidation ? [circularPlugin] : [])],
     ignoreWarnings: [/Failed to parse source map/],
   };
