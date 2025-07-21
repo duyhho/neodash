@@ -39,11 +39,11 @@ export const NeoWelcomeScreenModal = ({
     <div>
       <Dialog size='small' open={welcomeScreenOpen} aria-labelledby='form-dialog-title' disableCloseButton>
         <Dialog.Header id='form-dialog-title'>
-          NeoDash - Neo4j Dashboard Builder
+          Demo Application for TReXII RFS-25-06
           <BoltIconSolid className='icon-base' color='gold' style={{ float: 'right' }} />
         </Dialog.Header>
         <Dialog.Content>
-          <Tooltip title='Connect to Neo4j and create a new dashboard.' aria-label='create' disableInteractive>
+          <Tooltip title='Connect to Neo4j and create a new dashboard. For starters, you can use our sample demo database.' aria-label='create' disableInteractive>
             <Button
               onClick={() => {
                 if (hasCachedDashboard) {
@@ -89,7 +89,7 @@ export const NeoWelcomeScreenModal = ({
               </Button>
             )}
           </Tooltip>
-          {hasNeo4jDesktopConnection ? (
+          {/* {hasNeo4jDesktopConnection ? (
             <Tooltip title='Connect to an active database in Neo4j Desktop.' aria-label='connect' disableInteractive>
               <Button
                 onClick={() => {
@@ -115,33 +115,9 @@ export const NeoWelcomeScreenModal = ({
             >
               Connect to Neo4j Desktop
             </Button>
-          )}
+          )} */}
 
-          <Tooltip title='View a gallery of live examples.' aria-label='demo' disableInteractive>
-            <Button
-              target='_blank'
-              href='https://neodash-gallery.graphapp.io'
-              style={{ marginTop: '10px', width: '100%' }}
-              fill='outlined'
-              color='neutral'
-              size='large'
-            >
-              Try a Demo
-            </Button>
-          </Tooltip>
 
-          <Tooltip title='Show information about this application.' aria-label='' disableInteractive>
-            <Button
-              onClick={onAboutModalOpen}
-              style={{ marginTop: '10px', width: '100%' }}
-              fill='outlined'
-              color='neutral'
-              size='large'
-            >
-              {/**/}
-              About
-            </Button>
-          </Tooltip>
         </Dialog.Content>
         <Dialog.Actions
           style={{
@@ -153,16 +129,7 @@ export const NeoWelcomeScreenModal = ({
           }}
         >
           <div style={{ color: 'white' }}>
-            NeoDash is a tool for building standalone Neo4j dashboards. Need advice on building an integrated solution?{' '}
-            <TextLink
-              href='https://neo4j.com/professional-services/'
-              className='n-text-neutral-text-inverse'
-              target='_blank'
-              style={{ color: 'white' }}
-            >
-              Get in touch
-            </TextLink>
-            !
+            This demo application is built with NeoDash on React, a tool for building standalone Neo4j dashboards.
           </div>
         </Dialog.Actions>
       </Dialog>

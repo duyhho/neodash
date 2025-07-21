@@ -6,6 +6,7 @@ import { DEFAULT_DASHBOARD_TITLE } from '../config/ApplicationConfig';
 import { extensionsReducer, INITIAL_EXTENSIONS_STATE } from '../extensions/state/ExtensionReducer';
 import { PAGE_EXAMPLE_STATE, pageReducer, PAGE_EMPTY_STATE } from '../page/PageReducer';
 import { settingsReducer, SETTINGS_INITIAL_STATE } from '../settings/SettingsReducer';
+import sampleDashboard from './sample_dashboard.json';
 
 import {
   CREATE_PAGE,
@@ -27,13 +28,19 @@ export const VERSION_TO_MIGRATE = {
   '2.3': '2.4',
 };
 
+// Previous initialState values for reference:
+// export const initialState = {
+//   title: DEFAULT_DASHBOARD_TITLE,
+//   version: NEODASH_VERSION,
+//   settings: SETTINGS_INITIAL_STATE,
+//   pages: [PAGE_EXAMPLE_STATE],
+///  parameters: {},
+///  extensions: INITIAL_EXTENSIONS_STATE,
+// };
+
 export const initialState = {
-  title: DEFAULT_DASHBOARD_TITLE,
+  ...sampleDashboard,
   version: NEODASH_VERSION,
-  settings: SETTINGS_INITIAL_STATE,
-  pages: [PAGE_EXAMPLE_STATE],
-  parameters: {},
-  extensions: INITIAL_EXTENSIONS_STATE,
 };
 
 export const emptyDashboardState = {

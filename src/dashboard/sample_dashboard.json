@@ -1,0 +1,176 @@
+{
+  "title": "Sample Access Control Dashboard",
+  "version": "2.4",
+  "settings": {
+    "pagenumber": 0,
+    "editable": true,
+    "fullscreenEnabled": false,
+    "parameters": {},
+    "theme": "light"
+  },
+  "pages": [
+    {
+      "title": "First Page",
+      "reports": [
+        {
+          "id": "b1557856-f444-4958-9e1e-d35a31c982f7",
+          "title": "All restricted files and users only",
+          "query": "/* get all restricted documents and users that have access to it in graph */\n\nMATCH (u:User)-[ha:HAS_ACCESS_TO]->(d:Document)\nRETURN u, ha, d",
+          "width": 10,
+          "height": 6,
+          "x": 14,
+          "y": 4,
+          "type": "graph",
+          "selection": {
+            "User": "name",
+            "Document": "title"
+          },
+          "settings": {
+            "frozen": false,
+            "nodePositions": {}
+          },
+          "schema": [
+            [
+              "User",
+              "organization",
+              "name",
+              "location",
+              "id",
+              "job",
+              "email"
+            ],
+            [
+              "HAS_ACCESS_TO"
+            ],
+            [
+              "Document",
+              "owner",
+              "filepath",
+              "created",
+              "id",
+              "sensitivity",
+              "type",
+              "title"
+            ]
+          ]
+        },
+        {
+          "id": "c7c240e7-2da5-424f-8e3f-5baf26795872",
+          "title": "All registered users and restricted files",
+          "query": "\n/* get all restricted documents and users that have access to it in graph */\n\nMATCH (u:User)-[ha:HAS_ACCESS_TO]->(d:Document)\nRETURN u.name, d.title\n\n",
+          "width": 10,
+          "height": 4,
+          "x": 14,
+          "y": 0,
+          "type": "table",
+          "selection": {},
+          "settings": {}
+        },
+        {
+          "id": "b89d6bce-87b9-4364-aced-c2dd8d88fe12",
+          "title": "📊 Welcome to Our Demo Dashboard! ",
+          "query": "# Demo Dashboard for TReXII RFS-25-06\n\nWelcome to the interactive demo dashboard for the **TReXII RFS-25-06** capability demonstration. This dashboard visualizes a knowledge graph designed for role-based access control, user persona recognition, and intelligent matchmaking between private-sector innovations and DoD opportunities.\n\n> **Note:** If you make changes to this dashboard (e.g., layout, reports, queries), please **export your dashboard** using the **Export button** in the top-right corner.  \n> Changes are stored only in your current browser session and **will be lost** if you clear your cache, use a different browser, or start a new dashboard.\n\n---\n\n## Overview\n\nThis dashboard showcases how:\n\n- **User personas** are modeled with roles, regions, and organizational context  \n- **Technologies** are matched with training aids and linked to DoD-relevant documents  \n- **Access control** is enforced using graph relationships based on role hierarchy  \n- **Support entities** (e.g., AFWERX, APEX) are shown by user region  \n\n---\n\n## Objective\n\nDemonstrate a graph-driven system that:\n\n- Matches innovations to SBIR, BAA, CSO, and other DoD mechanisms  \n- Enforces fine-grained access rules for sensitive documents  \n- Tailors responses based on user role and region  \n- Supports local outreach by surfacing nearby resources  \n\n---\n\n## How to Use This Dashboard\n\nYou can interact with the **current reports and graph visualizations**, or:\n\n- ✏️ Create your own Cypher queries to explore user access, training aids, or region-based support  \n- 📈 Build custom tables and graphs from your queries using Neo4j's visual tools  \n- 🔄 Simulate role changes or regional reassignment to test access control logic  \n- 🧩 Rearrange and resize dashboard components by dragging and adjusting tiles for a personalized layout  \n\n**Example Query:**  \nTo see which documents Duy Ho has access to, try:\n\n> MATCH (u:User {name: \"Duy Ho\"})-[:HAS_ACCESS_TO]->(d:Document)  \n> RETURN d.title, d.sensitivity\n\n---\n",
+          "width": 14,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "type": "text",
+          "selection": {},
+          "settings": {},
+          "schema": []
+        },
+        {
+          "id": "b09a1d67-b2b5-4204-9119-9c4569630fb7",
+          "title": "Full Graph Visualization",
+          "query": "MATCH (n)-[e]->(m) RETURN n,e,m LIMIT 20\n\n\n\n\n\n",
+          "width": 14,
+          "height": 5,
+          "x": 0,
+          "y": 7,
+          "type": "graph",
+          "selection": {
+            "Region": "name",
+            "SupportEntity": "name",
+            "User": "name",
+            "Role": "name",
+            "Document": "title",
+            "MatchedTechnology": "name"
+          },
+          "settings": {},
+          "schema": [
+            [
+              "Region",
+              "regionCode",
+              "name",
+              "lon",
+              "lat"
+            ],
+            [
+              "NEARBY_SUPPORT"
+            ],
+            [
+              "SupportEntity",
+              "regionCode",
+              "address",
+              "contact",
+              "name",
+              "type"
+            ],
+            [
+              "User",
+              "organization",
+              "name",
+              "location",
+              "id",
+              "job",
+              "email"
+            ],
+            [
+              "HAS_ROLE"
+            ],
+            [
+              "Role",
+              "level",
+              "name"
+            ],
+            [
+              "LOCATED_IN"
+            ],
+            [
+              "HAS_ACCESS_TO"
+            ],
+            [
+              "Document",
+              "owner",
+              "filepath",
+              "created",
+              "id",
+              "sensitivity",
+              "type",
+              "title"
+            ],
+            [
+              "MatchedTechnology",
+              "useCase",
+              "mrl",
+              "name",
+              "description",
+              "source",
+              "classification",
+              "trl"
+            ],
+            [
+              "RESTRICTED_TO"
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "parameters": {},
+  "extensions": {
+    "active": true,
+    "activeReducers": []
+  },
+  "uuid": "8e21fa67-fb90-4c4b-b02d-59241e13fc62"
+}

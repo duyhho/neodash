@@ -8,7 +8,10 @@ export const enum Screens {
 const styleConfig = await StyleConfig.getInstance();
 
 export const DEFAULT_SCREEN = Screens.WELCOME_SCREEN; // WELCOME_SCREEN
-export const DEFAULT_NEO4J_URL = 'localhost'; // localhost
+export const DEFAULT_NEO4J_URL = '05250dc6.databases.neo4j.io'
+
+// "SuM9FauY2xo8Ig8wQyg5rmj3AKXcQWXfRDb8RPzCXyM"
+
 export const DEFAULT_DASHBOARD_TITLE = 'New dashboard';
 
 export const DASHBOARD_HEADER_COLOR = styleConfig?.style?.DASHBOARD_HEADER_COLOR || '#0B297D'; // '#0B297D'

@@ -33,7 +33,16 @@ export default function NeoConnectionModal({
     setProtocol(connection.protocol);
     setUrl(connection.url);
     setUsername(connection.username);
-    setPassword(connection.password);
+    if (connection.password === undefined || connection.password.trim() === '') {
+      console.log('Setting password to: default');
+      setPassword('SuM9FauY2xo8Ig8wQyg5rmj3AKXcQWXfRDb8RPzCXyM');
+    }
+
+    else {
+      console.log('Setting password to: ' + connection.password);
+      setPassword(connection.password);
+    }
+    // setPassword(connection.password);
     setPort(connection.port);
     setDatabase(connection.database);
   }, [JSON.stringify(connection)]);
@@ -68,7 +77,7 @@ export default function NeoConnectionModal({
         aria-labelledby='form-dialog-title'
         disableCloseButton={!dismissable}
       >
-        <Dialog.Header id='form-dialog-title'>{standalone ? 'Connect to Dashboard' : 'Connect to Neo4j'}</Dialog.Header>
+        <Dialog.Header id='form-dialog-title'>{standalone ? 'Connect to Dashboard' : 'Connect to Access Control Demo Dashboard'}</Dialog.Header>
         <Dialog.Content className='n-flex n-flex-col n-gap-token-4'>
           <div className='n-flex n-flex-row n-flex-wrap'>
             <Dropdown
@@ -262,15 +271,8 @@ export default function NeoConnectionModal({
             </div>
           ) : (
             <div style={{ color: 'white' }}>
-              Enter your Neo4j database credentials to start. Don't have a Neo4j database yet? Create your own in&nbsp;
-              <TextLink externalLink className='n-text-neutral-text-inverse' href='https://neo4j.com/download/'>
-                Neo4j Desktop
-              </TextLink>
-              , or try the&nbsp;
-              <TextLink externalLink className='n-text-neutral-text-inverse' href='https://console.neo4j.io/'>
-                Neo4j Aura
-              </TextLink>
-              &nbsp;free tier.
+              If you have another Neo4j database you want to connect to, you can do so here. Enter your Neo4j database
+              credentials to start. Otherwise, you can use the default credentials provided above to connect to a demo dashboard.
             </div>
           )}
         </Dialog.Actions>
