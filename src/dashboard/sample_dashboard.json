@@ -17,7 +17,7 @@
           "title": "All restricted files and users only",
           "query": "/* get all restricted documents and users that have access to it in graph */\n\nMATCH (u:User)-[ha:HAS_ACCESS_TO]->(d:Document)\nRETURN u, ha, d",
           "width": 10,
-          "height": 6,
+          "height": 5,
           "x": 14,
           "y": 4,
           "type": "graph",
@@ -83,7 +83,7 @@
           "id": "b09a1d67-b2b5-4204-9119-9c4569630fb7",
           "title": "Full Graph Visualization",
           "query": "MATCH (n)-[e]->(m) RETURN n,e,m LIMIT 20\n\n\n\n\n\n",
-          "width": 14,
+          "width": 6,
           "height": 5,
           "x": 0,
           "y": 7,
@@ -163,6 +163,40 @@
               "RESTRICTED_TO"
             ]
           ]
+        },
+        {
+          "id": "28e375c6-6cd0-4360-bc83-64456cec69a4",
+          "title": "Document Count by Sensitivity",
+          "query": "MATCH (d:Document)\nRETURN d.sensitivity AS Sensitivity, COUNT(*) AS Count\nORDER BY Count DESC\n\n\n\n",
+          "width": 8,
+          "height": 4,
+          "x": 6,
+          "y": 7,
+          "type": "bar",
+          "selection": {
+            "index": "Sensitivity",
+            "value": "Count",
+            "key": "(none)"
+          },
+          "settings": {},
+          "schema": []
+        },
+        {
+          "id": "7f229c9c-f21b-48ed-9941-77f547656c43",
+          "title": "Percentage of Files accessible by Duy Ho",
+          "query": "\n\nMATCH (u:User {name: \"Duy Ho\"})-[:HAS_ACCESS_TO]->(d:Document)\nRETURN d.sensitivity AS Sensitivity, COUNT(*) AS Count\n\n",
+          "width": 6,
+          "height": 4,
+          "x": 14,
+          "y": 9,
+          "type": "pie",
+          "selection": {
+            "index": "Sensitivity",
+            "value": "Count",
+            "key": "(none)"
+          },
+          "settings": {},
+          "schema": []
         }
       ]
     }
