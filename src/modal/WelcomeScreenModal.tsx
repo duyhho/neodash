@@ -40,7 +40,8 @@ export const NeoWelcomeScreenModal = ({
       <Dialog size='small' open={welcomeScreenOpen} aria-labelledby='form-dialog-title' disableCloseButton>
         <Dialog.Header id='form-dialog-title'>
           Demo Application for TReXII RFS-25-06
-          <BoltIconSolid className='icon-base' color='gold' style={{ float: 'right' }} />
+          {/* <BoltIconSolid className='icon-base' color='gold' style={{ float: 'right' }} /> */}
+          <img src="/favicon.png" alt="Favicon" className="icon-base" style={{ float: 'right', width: '32px', height: '32px' }} />
         </Dialog.Header>
         <Dialog.Content>
           <Tooltip title='Connect to Neo4j and create a new dashboard. For starters, you can use our sample demo database.' aria-label='create' disableInteractive>
