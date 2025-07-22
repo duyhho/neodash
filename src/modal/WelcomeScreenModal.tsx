@@ -39,7 +39,7 @@ export const NeoWelcomeScreenModal = ({
     <div>
       <Dialog size='small' open={welcomeScreenOpen} aria-labelledby='form-dialog-title' disableCloseButton>
         <Dialog.Header id='form-dialog-title'>
-          Demo Application for TReXII RFS-25-06
+          Demo Application for KGRAG-X
           {/* <BoltIconSolid className='icon-base' color='gold' style={{ float: 'right' }} /> */}
           <img src="/favicon.png" alt="Favicon" className="icon-base" style={{ float: 'right', width: '32px', height: '32px' }} />
         </Dialog.Header>
